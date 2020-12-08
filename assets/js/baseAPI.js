@@ -3,13 +3,14 @@ $.ajaxPrefilter(function (options) {
     // 拼接根路径与请求目标路径，options指的是$.ajax里的值
     options.url = 'http://ajax.frontend.itheima.net' + options.url;
 
-    //提取了请求头部
+    //提取了请求头部,如果url有/may/，则提取token值
     if (options.url.indexOf('/my/') !== -1) {
         options.headers = {
             Authorization: localStorage.getItem('token') || ''
         }
     }
-
+    
+    //限制用户行为
     //提取了complete回调函数
     //不管成功与否都调用回调函数
     options.complete = function (res) {

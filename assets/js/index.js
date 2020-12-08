@@ -45,7 +45,7 @@ function renderpic(user) {
     //获取用户名称
     var name = user.nickname || user.username;
     //渲染欢迎文本
-    $('#welcome1').html('欢迎' + name);
+    $('#welcome1').html('欢迎&nbsp&nbsp' + name);
     //判断有没有图片头像
     if (user.user_pic !== null) {
         //渲染图片头像
